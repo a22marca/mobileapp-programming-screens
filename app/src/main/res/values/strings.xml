@@ -1,8 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Screens</string>
     <string-array name="spinner_categories">
         <item>Cats</item>
         <item>Dogs</item>
         <item>Party</item>
+    </string-array>
+    <string-array name="cats">
+        <item>🐈</item>
+        <item>😺</item>
+        <item>😼</item>
+    </string-array>
+    <string-array name="dogs">
+        <item>🐕</item>
+        <item>🐶</item>
+        <item>🐕‍🦺</item>
+    </string-array>
+    <string-array name="party">
+        <item>🥳</item>
+        <item>💃</item>
+        <item>🎉</item>
     </string-array>
 </resources>
