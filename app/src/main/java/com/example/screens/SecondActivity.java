@@ -46,13 +46,9 @@ public class SecondActivity extends AppCompatActivity {
         // Flipping speed
         flipper.setFlipInterval(1000);
 
-        // Method to start flipping the View Flipper
-        flipper.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                flipper.startFlipping();
-            }
-        });
+        // start flipping
+        flipper.startFlipping();
+
 
     }
 }
