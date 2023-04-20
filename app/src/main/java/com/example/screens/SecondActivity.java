@@ -17,6 +17,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         String selectedCategory = "";
+        flipper = findViewById(R.id.flipper);
 
         // handle bundled data
         Bundle extras = getIntent().getExtras();
@@ -24,16 +25,9 @@ public class SecondActivity extends AppCompatActivity {
             selectedCategory = extras.getString("category");
         }
 
-        // get textViews from ViewFlipper
-        flipper = findViewById(R.id.flipper);
-        TextView[] views = new TextView[flipper.getChildCount()];
-        for (int i = 0; i < flipper.getChildCount(); i++) {
-            views[i] = (TextView) flipper.getChildAt(i);
-        }
-
         // Select emojis based on the selected category
         Resources resources = getResources();
-        String[] emojis = new String[3];
+        String[] emojis = new String[flipper.getChildCount()];
         if (selectedCategory.equals("Cats")) {
             emojis = resources.getStringArray(R.array.cats);
         } else if (selectedCategory.equals("Dogs")) {
@@ -42,8 +36,10 @@ public class SecondActivity extends AppCompatActivity {
             emojis = resources.getStringArray(R.array.party);
         }
 
-        // setText for the TextViews in the ViewFlipper
-        for (int i = 0; i < views.length; i++){
+        // get textViews from ViewFlipper and set emojis
+        TextView[] views = new TextView[flipper.getChildCount()];
+        for (int i = 0; i < flipper.getChildCount(); i++) {
+            views[i] = (TextView) flipper.getChildAt(i);
             views[i].setText(emojis[i]);
         }
 
@@ -57,5 +53,6 @@ public class SecondActivity extends AppCompatActivity {
                 flipper.startFlipping();
             }
         });
+
     }
 }
