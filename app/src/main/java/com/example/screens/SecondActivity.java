@@ -25,6 +25,10 @@ public class SecondActivity extends AppCompatActivity {
             selectedCategory = extras.getString("category");
         }
 
+        TextView header = findViewById(R.id.headerText);
+        header.setText(selectedCategory);
+
+
         // Select emojis based on the selected category
         Resources resources = getResources();
         String[] emojis = new String[flipper.getChildCount()];
