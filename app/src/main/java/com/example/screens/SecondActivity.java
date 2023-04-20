@@ -2,8 +2,10 @@ package com.example.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 public class SecondActivity extends AppCompatActivity {
@@ -14,9 +16,15 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        flipper = findViewById(R.id.flipper);
-        flipper.setFlipInterval(1000);
+        String selectedCategory = "";
 
+        // handle bundled data
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            selectedCategory = extras.getString("category");
+        }
+
+        flipper.setFlipInterval(1000);
         flipper.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {

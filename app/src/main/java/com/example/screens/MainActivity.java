@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Spinner categorySpinner = findViewById(R.id.categorySpinner);
+                String category = categorySpinner.getSelectedItem().toString();
+                intent.putExtra("category", category); // Optional
                 startActivity(intent);
             }
         });
