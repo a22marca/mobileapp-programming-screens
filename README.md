@@ -1,7 +1,7 @@
 
 # Rapport
 
-Uppgiften påbörjades genom att lägga till en activity som kallas `SecondActivity`. Fortsättningsvis så lades views till både `MainActivity` och `SecondActivity` genom att redigera `activity_main.xml` och `activity_second.xml`. `MainActivity` innehåller en `Spinner` med tre olika alternativ och en `Button`. För att kunna visa `SecondActivity` så implementerades en `onClickListener` och `onClick` metod för knappen i `MainActivity`. Knappen startar `SecondActivity` genom användning av intents. I kodstycket nedan visas metoden.
+Uppgiften påbörjades genom att lägga till en activity som kallas `SecondActivity`. Fortsättningsvis så lades views till både `MainActivity` och `SecondActivity` genom att redigera `activity_main.xml` och `activity_second.xml`. `MainActivity` innehåller en `Spinner` med tre olika kategorier(alternativ) och en `Button`. För att kunna visa `SecondActivity` så implementerades en `onClickListener` och `onClick` metod för knappen i `MainActivity`. Knappen startar `SecondActivity` och den valda kategorin skickas med intents. I kodstycket nedan visas metoden.
 
 ```java
 Button showButton = findViewById(R.id.showButton);
@@ -17,7 +17,7 @@ showButton.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-`SecondActivity` använder en `TextView` som presenterar den valda kategorin. Nedan visas kod som används för att hantera data som skickats med intents för att bestämma texten för den nämnda `TextView` widget:en.
+`SecondActivity` använder en `TextView` som presenterar den valda kategorin. Nedan visas kod som används för att hantera data som skickats med intents och för att bestämma texten för widget:en.
 
 ```java
 String selectedCategory = "";
@@ -33,7 +33,7 @@ TextView header = findViewById(R.id.headerText);
 header.setText(selectedCategory);
 ```
 
-En `ViewFlipper` används för att bläddra igenom tre olika `TextView` widgets i `SecondActivity` . Innehållet av dessa tre widgets baseras på den valda kategorin i `MainActivity`. Selektion kontrollerar vilken array som ska användas från resursfilen `strings.xml`. I xml-filen implementerades tre olika arrays som kan användas av `TextView` widgets:en. Varje array innehåller olika emojis som representerar en av de tre kategorier. I det kommande kodstycket så visas selektionen och hur respektive `TextView` tilldelas en emoji.
+En `ViewFlipper` används för att bläddra igenom tre olika `TextView` widgets i `SecondActivity` . Innehållet av dessa tre widgets baseras även på den valda kategorin från `MainActivity`. Selektion kontrollerar vilken array som ska användas från resursfilen `strings.xml`. I xml-filen implementerades tre olika arrays som kan användas av `TextView` widgets:en. Varje array innehåller olika emojis som representerar en av de tre kategorierna. I det kommande kodstycket så visas selektionen och hur respektive `TextView` tilldelas en emoji.
 
 ```java
 // Select emojis based on the selected category
