@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 Spinner categorySpinner = findViewById(R.id.categorySpinner);
-                String category = categorySpinner.getSelectedItem().toString();
-                intent.putExtra("category", category); // Optional
+                String category = categorySpinner.getSelectedItem().toString(); // selected category
+                intent.putExtra("category", category);
                 startActivity(intent);
             }
         });
