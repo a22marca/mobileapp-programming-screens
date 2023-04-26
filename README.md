@@ -1,7 +1,7 @@
 
 # Rapport
 
-Uppgiften påbörjades genom att lägga till en `Activity` som kallas `SecondActivity`. Fortsättningsvis så lades views till `MainActivity` och `SecondActivity`. `MainActivity` innehåller en `Spinner` med tre olika alternativ som användaren kan välja mellan och en `Button`. För att kunna visa `SecondActivity` så implementerades en `onClickListener` ocn `onClick` metod för knappen i `MainActivity`. Knappen startar `SecondActivity` genom användning av intents. I kodstycket nedan visas metoden.
+Uppgiften påbörjades genom att lägga till en `Activity` som kallas `SecondActivity`. Fortsättningsvis så lades views till dessa activities genom att redigera `activity_main.xml` och `activity_second.xml`. `MainActivity` innehåller en `Spinner` med tre olika alternativ och en `Button`. För att kunna visa `SecondActivity` så implementerades en `onClickListener` ocn `onClick` metod för knappen i `MainActivity`. Knappen startar `SecondActivity` genom användning av intents. I kodstycket nedan visas metoden.
 
 ```java
 Button showButton = findViewById(R.id.showButton);
@@ -10,14 +10,14 @@ showButton.setOnClickListener(new View.OnClickListener() {
     public void onClick(View view) {
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
         Spinner categorySpinner = findViewById(R.id.categorySpinner);
-        String category = categorySpinner.getSelectedItem().toString();
-        intent.putExtra("category", category); // Optional
+        String category = categorySpinner.getSelectedItem().toString(); // selected category
+        intent.putExtra("category", category);
         startActivity(intent);
     }
 });
 ```
 
-`SecondActivity` använder en `TextView` som presenterar den valda kategorin som valts i `Spinner` widgeten i `MainActivity`. Nedan visas ett stycke med den kod som används för att hantera datan som skickats med intents och för att bestämma texten för den nämnda `TextView` widget:en.
+`SecondActivity` använder en `TextView` som presenterar den valda kategorin som valts. Nedan visas kod som används för att hantera data som skickats med intents och för att bestämma texten för den nämnda `TextView` widget:en.
 
 ```java
 String selectedCategory = "";
@@ -33,7 +33,7 @@ TextView header = findViewById(R.id.headerText);
 header.setText(selectedCategory);
 ```
 
-Fortsättningsvis så används även en `ViewFlipper` som bläddrar genom tre olika `TextView` widgets. Innehållet av dessa tre widgets baseras även på den valda kategorin i `MainActivity`. Alternativet sparas som en `String` och en selektion sker som kontrollerar vilken array som ska användas från resursfilen `strings.xml`. I xml-filen implementerades tre olika arrays som kan användas av `TextView` widgets:en. Varje array innehåller olika emojis som representerar en av de tre kategorier som kan väljas av användaren. I det kommande kodstycket så visas selektionen och hur respektive `TextView` tilldelas en emoji.
+Fortsättningsvis så används även en `ViewFlipper` som bläddrar genom tre olika `TextView` widgets i `SecondActivity` . Innehållet av dessa tre widgets baseras på den valda kategorin i `MainActivity`. Alternativet sparas som en `String` och selektion kontrollerar vilken array som ska användas från resursfilen `strings.xml`. I xml-filen implementerades tre olika arrays som kan användas av `TextView` widgets:en. Varje array innehåller olika emojis som representerar en av de tre kategorier. I det kommande kodstycket så visas selektionen och hur respektive `TextView` tilldelas en emoji.
 
 ```java
 // Select emojis based on the selected category
