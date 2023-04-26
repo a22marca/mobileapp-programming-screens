@@ -1,7 +1,7 @@
 
 # Rapport
 
-Uppgiften påbörjades genom att lägga till en activity som kallas `SecondActivity`. Fortsättningsvis så lades views till både `MainActivity` och `SecondActivity` genom att redigera `activity_main.xml` och `activity_second.xml`. `MainActivity` innehåller en `Spinner` med tre olika kategorier(alternativ) och en `Button`. För att kunna visa `SecondActivity` så implementerades en `onClickListener` och `onClick` metod för knappen i `MainActivity`. Knappen startar `SecondActivity` och den valda kategorin skickas med intents. I kodstycket nedan visas metoden.
+Applikationen använder utöver `MainActivity` en activity som kallas `SecondActivity`. Views för både `MainActivity` och `SecondActivity` lades till genom att redigera `activity_main.xml` och `activity_second.xml`. `MainActivity` innehåller en `Spinner` med tre olika kategorier(alternativ) och en `Button`. För att kunna visa `SecondActivity` så implementerades en `onClickListener` och `onClick` metod för knappen i `MainActivity`. Knappen startar `SecondActivity` och den valda kategorin skickas med intents. I kodstycket nedan visas metoden.
 
 ```java
 Button showButton = findViewById(R.id.showButton);
